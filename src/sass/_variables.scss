@@ -1,0 +1,42 @@
+$primaryColor: #39cdcc;
+
+@mixin flexC {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexJ {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flexCC {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexCB {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// TABLE BUTTONS
+
+.inactive {
+  background: #f5f5f7;
+  color: #545f7d;
+}
+.pending {
+  background: #fdf7e5;
+  color: #e9b200;
+}
+.blacklisted {
+  background: #fce6eb;
+  color: #e4033b;
+}
+.active {
+  background: #f3fcf6;
+  color: #39cd62;
+}

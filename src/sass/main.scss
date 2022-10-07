@@ -1,0 +1,13 @@
+@import "./responsiveness";
+@import "./general";
+@import "./variables";
+@import "./login";
+@import "./navbar";
+@import "./sidebar";
+@import "./dashbody.scss";
+
+.dashboard {
+  .sidebar-body-container {
+    @include flexCB;
+  }
+}
