@@ -4,7 +4,6 @@
   top: 90px;
   padding: 10px;
   padding-top: 40px;
-  background: #e5e5e5;
   transition: 0.4s ease-in-out all;
 
   &.d-none {
@@ -87,20 +86,21 @@
     }
 
     .table-user {
-      height: 60px;
       border-bottom: 1px solid rgba(33, 63, 125, 0.1);
       display: grid;
       grid-template-columns: repeat(5, 150px);
-      cursor: pointer;
       p {
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
+        height: 60px;
         @include flexC;
+        cursor: pointer;
       }
 
       div {
         position: relative;
+        height: 60px;
       }
 
       .organisation {
@@ -128,6 +128,7 @@
         .options-icon {
           padding: 0.5rem;
           z-index: 6;
+          cursor: pointer;
         }
       }
     }
@@ -138,6 +139,7 @@
     @include flexJ;
     flex-direction: column;
     color: #545f7d;
+    margin-bottom: 2rem;
 
     .filter {
       @include flexC;
@@ -162,6 +164,14 @@
       @include flexCC;
       p {
         margin: 0 1rem;
+        cursor: pointer;
+
+        &.active-page {
+          color: #545f7d;
+          font-weight: 600;
+          border: 1px solid #545f7d;
+          padding: 0 0.5rem;
+        }
       }
       button {
         color: #213f7d;
@@ -193,7 +203,7 @@
 @include for-desktop-up {
   .dashbody {
     width: calc(100% - 283px);
-    position: absolute;
+    position: static;
     right: 0;
     padding: 60px 20px 60px 60px;
 

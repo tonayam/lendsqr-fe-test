@@ -44,7 +44,7 @@ const Filter = () => {
 
         <div className='btns'>
           <button>Reset</button>
-          <button className='filter-btn'>Reset</button>
+          <button className='filter-btn'>Filter</button>
         </div>
       </form>
     </article>

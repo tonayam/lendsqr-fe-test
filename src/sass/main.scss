@@ -11,7 +11,9 @@
 
 .dashboard {
   overflow-x: hidden;
-  .sidebar-body-container {
-    @include flexCB;
-  }
+}
+
+.sidebar-body-container {
+  @include flexJ;
+  background: #fbfbfb;
 }

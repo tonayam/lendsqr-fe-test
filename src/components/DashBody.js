@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "./Context";
 import { usersData, tableHeader } from "../data";
 import { FaChevronDown, FaChevronRight, FaChevronLeft } from "react-icons/fa";
@@ -10,18 +10,52 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 
 const DashBody = () => {
-  const { showNav, showDash, users, showFilter, setShowFilter, loading } =
-    useGlobalContext();
+  const [page, setPage] = useState(0);
+  const [usersPage, setUsersPage] = useState([]);
 
-  const handleClick = (e) => {
-    const clicked = e.target.nextElementSibling;
-    clicked.classList.toggle(`show`);
-  };
+  const {
+    showNav,
+    showDash,
+    users,
+    showFilter,
+    setShowFilter,
+    loading,
+    handleClick,
+  } = useGlobalContext();
+
+  useEffect(() => {
+    if (loading) return;
+    setUsersPage(users[page]);
+  }, [loading, page]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
     document.title = `Lendsqr - Dashboard`;
   }, []);
+
+  const handlePage = (index) => {
+    setPage(index);
+  };
+
+  const nextPage = () => {
+    setPage((oldPage) => {
+      let nextPage = oldPage + 1;
+      if (nextPage > users.length - 1) {
+        return (nextPage = 0);
+      }
+      return nextPage;
+    });
+  };
+
+  const prevPage = () => {
+    setPage((oldPage) => {
+      let prevPage = oldPage - 1;
+      if (prevPage < 0) {
+        return (prevPage = users.length - 1);
+      }
+      return prevPage;
+    });
+  };
 
   if (loading) {
     return (
@@ -68,29 +102,35 @@ const DashBody = () => {
               })}
             </ul>
           </div>
-          {users.map((user) => {
+          {usersPage.map((user) => {
             const { id, phoneNumber, orgName, userName, createdAt } = user;
             return (
-              <Link to={`/user-details/${id}`} key={id}>
-                <div className='table-user' id={id}>
+              <div className='table-user' id={id} key={id}>
+                <Link to={`/user-details/${id}`}>
                   <p className='organisation'>{orgName}</p>
+                </Link>
+                <Link to={`/user-details/${id}`}>
                   <p>{userName}</p>
+                </Link>
+                <Link to={`/user-details/${id}`}>
                   <p className='number'>{phoneNumber}</p>
+                </Link>
+                <Link to={`/user-details/${id}`}>
                   <p className='date'>
                     {moment(createdAt).format("MMM Do YYYY, h:mm:ss a")}
                   </p>
-                  <div>
-                    <h6 className='inactive'>Inactive</h6>
-                    <img
-                      src={options}
-                      alt='options icon'
-                      className='options-icon'
-                      onClick={handleClick}
-                    />
-                    <UserOptions />
-                  </div>
+                </Link>
+                <div>
+                  <h6 className='inactive'>Inactive</h6>
+                  <img
+                    src={options}
+                    alt='options icon'
+                    className='options-icon'
+                    onClick={handleClick}
+                  />
+                  <UserOptions />
                 </div>
-              </Link>
+              </div>
             );
           })}
 
@@ -103,25 +143,30 @@ const DashBody = () => {
           <p>
             Showing{" "}
             <span className='no'>
-              10{" "}
+              15{" "}
               <span>
                 <FaChevronDown />
               </span>
             </span>{" "}
-            out of 500
+            out of 100
           </p>
         </div>
         <div className='pages'>
-          <button>
+          <button onClick={prevPage}>
             <FaChevronLeft />
           </button>
-          <p>1</p>
-          <p>2</p>
-          <p>3</p>
-          <p>4</p>
-          <p>5</p>
-          <p>6</p>
-          <button>
+          {users.map((item, index) => {
+            return (
+              <p
+                key={index}
+                className={`${index === page ? `active-page` : null}`}
+                onClick={() => handlePage(index)}
+              >
+                {index + 1}
+              </p>
+            );
+          })}
+          <button onClick={nextPage}>
             <FaChevronRight />
           </button>
         </div>

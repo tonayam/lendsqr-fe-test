@@ -6,13 +6,13 @@
   padding: 10px;
   padding-top: 40px;
   transition: 0.4s ease-in-out all;
-
   &.d-none {
     transform: translateX(-100%);
   }
 
   .navigation {
-    @include flexC;
+    display: inline-flex;
+    align-items: center;
     margin-bottom: 32px;
     span {
       margin-right: 1rem;
@@ -187,16 +187,7 @@
 }
 
 @include for-tablet-potrait-up {
-}
-
-@include for-tablet-landscape-up {
-}
-
-@include for-desktop-up {
   .user-details {
-    width: calc(100% - 283px);
-    padding: 60px 20px 60px 60px;
-
     .header {
       @include flexCB;
       margin-bottom: 0;
@@ -217,7 +208,7 @@
         .user-name,
         .user-tier,
         .user-balance {
-          margin: 0 1rem;
+          margin: 0 0.5rem;
           height: 100px;
         }
 
@@ -230,7 +221,7 @@
         }
 
         .user-tier {
-          padding: 0 2rem;
+          padding: 0 1rem;
           border-left: 1px solid #545f7d;
           border-right: 1px solid #545f7d;
         }
@@ -241,6 +232,46 @@
 
         ul {
           width: 100%;
+        }
+      }
+    }
+
+    .info-block {
+      article {
+        .content {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        &.education-employment {
+          .content {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include for-tablet-landscape-up {
+}
+
+@include for-desktop-up {
+  .user-details {
+    width: calc(100% - 283px);
+    padding: 60px 20px 60px 60px;
+    position: static;
+
+    .basic-info {
+      .info {
+        .user-img,
+        .user-name,
+        .user-tier,
+        .user-balance {
+          margin: 0 1rem;
+        }
+
+        .user-tier {
+          padding: 0 2rem;
         }
       }
     }
