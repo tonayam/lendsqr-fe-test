@@ -1,0 +1,41 @@
+.options {
+  width: 180px;
+  height: 130px;
+  background: #fff;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 20px;
+  display: none;
+  position: absolute;
+  left: -95px;
+  &.show {
+    display: block;
+    z-index: 4;
+  }
+  li {
+    margin: 0.5rem 0;
+
+    span {
+      margin-right: 1rem;
+    }
+  }
+}
+
+@include for-phone-only {
+}
+
+@include for-tablet-potrait-up {
+}
+
+@include for-tablet-landscape-up {
+}
+
+@include for-desktop-up {
+  .options {
+    left: -80px;
+  }
+}
+
+@include for-big-desktop-up {
+}

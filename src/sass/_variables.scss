@@ -40,3 +40,18 @@ $primaryColor: #39cdcc;
   background: #f3fcf6;
   color: #39cd62;
 }
+
+// UTILITY CLASSES
+
+.underline {
+  width: 100%;
+  height: 0px;
+  opacity: 0.1;
+  border: 1px solid #213f7d;
+}
+
+.center {
+  height: 100%;
+  width: 100%;
+  @include flexCC;
+}

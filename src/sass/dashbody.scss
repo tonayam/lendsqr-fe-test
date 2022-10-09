@@ -54,9 +54,11 @@
     width: 100%;
     margin-top: 40px;
     background: #fff;
+    overflow-y: hidden;
     overflow-x: scroll;
     padding-left: 30px;
     color: #545f7d;
+    position: relative;
 
     .table-header {
       width: 100%;
@@ -78,6 +80,7 @@
           span {
             @include flexC;
             margin-left: 10px;
+            cursor: pointer;
           }
         }
       }
@@ -94,6 +97,10 @@
         font-size: 14px;
         line-height: 16px;
         @include flexC;
+      }
+
+      div {
+        position: relative;
       }
 
       .organisation {
@@ -116,6 +123,11 @@
           font-size: 14px;
           line-height: 16px;
           text-align: center;
+        }
+
+        .options-icon {
+          padding: 0.5rem;
+          z-index: 6;
         }
       }
     }
@@ -190,8 +202,14 @@
       margin-top: 50px;
     }
 
+    .table-container {
+      overflow-y: hidden;
+      padding-bottom: 1rem;
+    }
+
     .table {
       overflow-x: initial;
+      overflow: visible;
 
       .table-header {
         ul {

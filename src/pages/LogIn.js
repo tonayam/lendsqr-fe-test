@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../images/logo.svg";
 import pabloArt from "../images/pablo-sign-in 1.svg";
+import { Link } from "react-router-dom";
 
 const LogIn = () => {
   return (
@@ -30,8 +31,9 @@ const LogIn = () => {
               <h4>Show</h4>
             </div>
             <h4 className='forgot-password'>FORGOT PASSWORD?</h4>
-
-            <button className='submit-btn'>LOG IN</button>
+            <Link to='/dashboard'>
+              <button className='submit-btn'>LOG IN</button>
+            </Link>
           </form>
         </div>
       </article>

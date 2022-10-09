@@ -4,9 +4,13 @@
 @import "./login";
 @import "./navbar";
 @import "./sidebar";
-@import "./dashbody.scss";
+@import "./dashbody";
+@import "./filter";
+@import "./options";
+@import "./userdetails";
 
 .dashboard {
+  overflow-x: hidden;
   .sidebar-body-container {
     @include flexCB;
   }

@@ -6,15 +6,18 @@ import { FaSearch } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { BsBell } from "react-icons/bs";
 import profileImage from "../images/profile-image.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { showNav, setShowNav, setShowDash, showDash } = useGlobalContext();
 
   return window.innerWidth > 1100 ? (
     <nav>
-      <div className='logo'>
-        <img src={logo} alt='lendsqr logo' />
-      </div>
+      <Link to='/dashboard'>
+        <div className='logo'>
+          <img src={logo} alt='lendsqr logo' />
+        </div>
+      </Link>
       <div className='search'>
         <div className='search-container'>
           <input
@@ -49,9 +52,11 @@ const Navbar = () => {
   ) : (
     <>
       <nav>
-        <div className='logo'>
-          <img src={logo} alt='lendsqr logo' />
-        </div>
+        <Link to='/dashboard'>
+          <div className='logo'>
+            <img src={logo} alt='lendsqr logo' />
+          </div>
+        </Link>
         <div
           className='hambugger-menu'
           onClick={() => {
