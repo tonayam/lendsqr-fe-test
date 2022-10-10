@@ -29,6 +29,7 @@ nav {
   transition: 0.5s ease-in-out all;
   z-index: 3;
   background: #fff;
+
   &.show {
     transform: translateX(0);
   }
@@ -37,6 +38,7 @@ nav {
 // SEARCH BAR
 .search {
   @include flexCC;
+
   .search-container {
     @include flexCB;
     background: #fff;
@@ -74,20 +76,24 @@ nav {
   ul {
     width: 90%;
     margin: auto;
+
     li {
       @include flexC;
       margin: 1.5rem 0;
       color: #213f7d;
       cursor: pointer;
     }
+
     .bell {
       font-size: 2rem;
       margin-left: 0.5rem;
     }
+
     .profile {
       border-radius: 50%;
       width: 50px;
       @include flexCC;
+
       img {
         border-radius: 50%;
         width: 100%;
@@ -97,10 +103,10 @@ nav {
   }
 }
 
-@include for-phone-only {
-}
+@include for-phone-only {}
 
 @include for-tablet-potrait-up {
+
   // NAV ITEMS
   .nav-items {
     ul {
@@ -113,8 +119,7 @@ nav {
   }
 }
 
-@include for-tablet-landscape-up {
-}
+@include for-tablet-landscape-up {}
 
 @include for-desktop-up {
   nav {
@@ -122,6 +127,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-content: center;
+    overflow: visible
   }
 
   // NAV ITEMS
@@ -131,15 +137,24 @@ nav {
       flex-direction: row;
       width: auto;
       margin: auto;
+
       li {
         margin: 0 1rem;
+
         &:first-child {
           width: auto;
+        }
+
+        &:last-child {
+          position: relative;
+
+          &:hover .admin-options {
+            transform: scale(1);
+          }
         }
       }
     }
   }
 }
 
-@include for-big-desktop-up {
-}
+@include for-big-desktop-up {}

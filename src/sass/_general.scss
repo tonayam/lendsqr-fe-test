@@ -20,6 +20,10 @@ ul {
   list-style: none;
 }
 
+li {
+  cursor: pointer;
+}
+
 button {
   cursor: pointer;
 }
@@ -28,25 +32,10 @@ input {
   border: none;
   outline: none;
   height: 90%;
-  background: #ffffff;
+  background: $whiteColor;
 }
 
 img {
   object-fit: cover;
   align-self: center;
-}
-
-@include for-phone-only {
-}
-
-@include for-tablet-potrait-up {
-}
-
-@include for-tablet-landscape-up {
-}
-
-@include for-desktop-up {
-}
-
-@include for-big-desktop-up {
 }

@@ -3,11 +3,11 @@ aside {
   padding-top: 35px;
   position: absolute;
   top: 90px;
-  color: #213f7d;
+  color: $textColorHeavy;
   z-index: -1;
   transform: translateX(-100%);
-  transition: 0.5s ease-in-out all;
-  background: #ffffff;
+  transition: $generalTransition;
+  background: $whiteColor;
 
   &.show {
     z-index: 4;
@@ -17,6 +17,7 @@ aside {
   ul {
     display: flex;
     flex-wrap: wrap;
+
     li {
       @include flexC;
       cursor: pointer;
@@ -35,6 +36,7 @@ aside {
         font-size: 16px;
       }
     }
+
     .org {
       margin-bottom: 20px;
     }
@@ -45,19 +47,16 @@ aside {
     font-size: 12px;
     line-height: 14px;
     margin-top: 40px;
-    color: #545f7d;
+    color: $textColorLight;
     padding-left: 30px;
   }
 }
 
-@include for-phone-only {
-}
+@include for-phone-only {}
 
-@include for-tablet-potrait-up {
-}
+@include for-tablet-potrait-up {}
 
-@include for-tablet-landscape-up {
-}
+@include for-tablet-landscape-up {}
 
 @include for-desktop-up {
   aside {
@@ -71,6 +70,7 @@ aside {
 
     ul {
       display: block;
+
       li {
         width: 100%;
       }
@@ -78,5 +78,4 @@ aside {
   }
 }
 
-@include for-big-desktop-up {
-}
+@include for-big-desktop-up {}

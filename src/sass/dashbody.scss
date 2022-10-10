@@ -4,14 +4,14 @@
   top: 90px;
   padding: 10px;
   padding-top: 40px;
-  transition: 0.4s ease-in-out all;
+  transition: $generalTransition;
 
   &.d-none {
     transform: translateX(-100%);
   }
 
   .title {
-    color: #213f7d;
+    color: $textColorHeavy;
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
@@ -25,15 +25,15 @@
 
     .card {
       height: 160px;
-      background: #ffffff;
+      background: $whiteColor;
       border: 1px solid rgba(33, 63, 125, 0.06);
-      box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+      box-shadow: $boxShadow;
       border-radius: 4px;
-      padding-left: 30px;
+      padding-left: 20px;
       padding-top: 20px;
 
       p {
-        color: #545f7d;
+        color: $textColorLight;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
@@ -41,7 +41,7 @@
       }
 
       h5 {
-        color: #213f7d;
+        color: $textColorHeavy;
         font-weight: 600;
         font-size: 24px;
         line-height: 28px;
@@ -49,14 +49,15 @@
     }
   }
 
+  // TABLE CONTAINING USER DATA GOTTEN FROM API ENDPOINT
   .table {
     width: 100%;
     margin-top: 40px;
-    background: #fff;
+    background: $whiteColor;
     overflow-y: hidden;
     overflow-x: scroll;
     padding-left: 30px;
-    color: #545f7d;
+    color: $textColorLight;
     position: relative;
 
     .table-header {
@@ -89,6 +90,7 @@
       border-bottom: 1px solid rgba(33, 63, 125, 0.1);
       display: grid;
       grid-template-columns: repeat(5, 150px);
+
       p {
         font-weight: 400;
         font-size: 14px;
@@ -134,11 +136,13 @@
     }
   }
 
+
+  // PAGINATION
   .filter-pages-container {
     margin-top: 20px;
     @include flexJ;
     flex-direction: column;
-    color: #545f7d;
+    color: $textColorLight;
     margin-bottom: 2rem;
 
     .filter {
@@ -162,23 +166,26 @@
     .pages {
       margin-top: 2rem;
       @include flexCC;
+
       p {
         margin: 0 1rem;
         cursor: pointer;
 
         &.active-page {
-          color: #545f7d;
+          color: $textColorLight;
           font-weight: 600;
-          border: 1px solid #545f7d;
+          border: 1px solid $textColorLight;
           padding: 0 0.5rem;
         }
       }
+
       button {
-        color: #213f7d;
+        color: $textColorHeavy;
         padding: 0.5rem;
         background: rgba(33, 63, 125, 0.1);
         border: none;
         margin: 0 1rem;
+
         &:first-child {
           margin-left: 0;
         }
@@ -191,14 +198,11 @@
   }
 }
 
-@include for-phone-only {
-}
+@include for-phone-only {}
 
-@include for-tablet-potrait-up {
-}
+@include for-tablet-potrait-up {}
 
-@include for-tablet-landscape-up {
-}
+@include for-tablet-landscape-up {}
 
 @include for-desktop-up {
   .dashbody {
@@ -250,5 +254,4 @@
   }
 }
 
-@include for-big-desktop-up {
-}
+@include for-big-desktop-up {}

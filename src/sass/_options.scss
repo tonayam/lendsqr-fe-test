@@ -1,18 +1,21 @@
 .options {
   width: 180px;
   height: 130px;
-  background: #fff;
+  background: $whiteColor;
   border: 1px solid rgba(84, 95, 125, 0.04);
-  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: $boxShadow;
   border-radius: 4px;
   padding: 20px;
-  display: none;
+  transform: scale(0);
   position: absolute;
   left: -95px;
+  transition: $generalTransition;
+
   &.show {
-    display: block;
+    transform: scale(1);
     z-index: 4;
   }
+
   li {
     margin: 0.5rem 0;
     cursor: pointer;
@@ -23,14 +26,41 @@
   }
 }
 
-@include for-phone-only {
+.admin-options {
+  top: 20px;
+  position: absolute;
+  left: -30px;
+  width: 150px;
+  background: $whiteColor;
+  box-shadow: $boxShadow;
+  border-radius: 5px;
+  transform: scale(0);
+  transition: $generalTransition;
+
+  ul {
+    padding: 1rem 0rem;
+    @include flexCB;
+    flex-direction: column;
+
+    li {
+      border-bottom: none !important;
+      margin: .5rem 0;
+      color: grey;
+
+      &:first-child {
+        color: $textColorHeavy;
+      }
+    }
+  }
 }
 
-@include for-tablet-potrait-up {
-}
 
-@include for-tablet-landscape-up {
-}
+
+@include for-phone-only {}
+
+@include for-tablet-potrait-up {}
+
+@include for-tablet-landscape-up {}
 
 @include for-desktop-up {
   .options {
@@ -38,5 +68,4 @@
   }
 }
 
-@include for-big-desktop-up {
-}
+@include for-big-desktop-up {}

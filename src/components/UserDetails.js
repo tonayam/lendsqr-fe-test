@@ -36,6 +36,7 @@ const UserDetails = () => {
     fetchUserDetails();
   }, [fetchUserDetails, id]);
 
+  // WHILE FETCHING CUSTOMER DETAILS FROM THE API
   if (loading) {
     return <Loading />;
   }
@@ -53,6 +54,7 @@ const UserDetails = () => {
   // DESTRUCTING THE OBJECTS GOTTEN FROM THE API
   const { address, avatar, bvn, firstName, gender, lastName, phoneNumber } =
     profile;
+
   const {
     duration,
     employmentStatus,
@@ -62,7 +64,9 @@ const UserDetails = () => {
     officeEmail,
     sector,
   } = education;
+
   const { facebook, instagram, twitter } = socials;
+
   const {
     firstName: guarantorFirstName,
     lastName: guarantorLastName,
@@ -81,6 +85,7 @@ const UserDetails = () => {
           <h4>Back to Users</h4>
         </div>
       </Link>
+
       <div className='header'>
         <h2 className='title'>User Details</h2>
         <div className='btns'>
@@ -89,6 +94,7 @@ const UserDetails = () => {
         </div>
       </div>
 
+      {/* SECTION CONTAINING THE BASIC DETAILS ABOUT THE CUSTOMER */}
       <div className='basic-info'>
         <div className='info'>
           <div className='user-img'>
@@ -125,6 +131,7 @@ const UserDetails = () => {
         </div>
       </div>
 
+      {/* SECTION CONTAINING ALL THE DETAILS ABOUT THE CUSTOMER */}
       <section className='info-block'>
         <article className='personal-info'>
           <h3 className='article-title'>Personal Information</h3>

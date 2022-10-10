@@ -14,8 +14,9 @@ const DashBody = () => {
   const [usersPage, setUsersPage] = useState([]);
 
   const {
-    showNav,
+    showNavbar,
     showDash,
+    allUsers,
     users,
     showFilter,
     setShowFilter,
@@ -26,13 +27,14 @@ const DashBody = () => {
   useEffect(() => {
     if (loading) return;
     setUsersPage(users[page]);
-  }, [loading, page]);
+  }, [loading, page, users]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
     document.title = `Lendsqr - Dashboard`;
   }, []);
 
+  // PAGE BUTTONS (NAVIGATION THROUGH THE FETCHED DATA USING THE PAGINATION FEATURE)
   const handlePage = (index) => {
     setPage(index);
   };
@@ -57,6 +59,7 @@ const DashBody = () => {
     });
   };
 
+  // WHILE DATA IS BEING FETCHED FROM THE API
   if (loading) {
     return (
       <section className='dashbody center'>
@@ -66,22 +69,24 @@ const DashBody = () => {
   }
 
   return (
-    <section className={`${showDash || showNav ? `d-none` : ``} dashbody`}>
+    <section className={`${showDash || showNavbar ? `d-none` : ``} dashbody`}>
       <h2 className='title'>Users</h2>
 
+      {/* SECTION CONTAINING TOTAL USERS STATS */}
       <div className='users-data'>
         {usersData.map((card, index) => {
-          const { title, icon, num } = card;
+          const { title, icon } = card;
           return (
             <div className='card' key={index}>
               <img src={icon} alt='users icon' />
               <p>{title}</p>
-              <h5>{num.toLocaleString(`en-US`)}</h5>
+              <h5>{allUsers.length.toLocaleString(`en-US`)}</h5>
             </div>
           );
         })}
       </div>
 
+      {/* TABLE CONTAINING USER INFORMATION GOTTEN FROM THE API */}
       <div className='table-container'>
         <div className='table'>
           <div className='table-header'>
@@ -121,23 +126,27 @@ const DashBody = () => {
                   </p>
                 </Link>
                 <div>
-                  <h6 className='inactive'>Inactive</h6>
+                  <h6 className='active'>Active</h6>
                   <img
                     src={options}
                     alt='options icon'
                     className='options-icon'
                     onClick={handleClick}
                   />
+
+                  {/* OPTIONS COMPONENT ACCESSIBLE BY CLICKING THE KEBAB MENU ON THE TABLE */}
                   <UserOptions />
                 </div>
               </div>
             );
           })}
 
+          {/* FILTER COMPONENT */}
           <Filter />
         </div>
       </div>
 
+      {/* PAGINATION AT THE BOTTOM OF THE PAGE */}
       <div className='filter-pages-container'>
         <div className='filter'>
           <p>

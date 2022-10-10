@@ -7,9 +7,11 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { BsBell } from "react-icons/bs";
 import profileImage from "../images/profile-image.png";
 import { Link } from "react-router-dom";
+import AdminOption from "./AdminOption";
 
 const Navbar = () => {
-  const { showNav, setShowNav, setShowDash, showDash } = useGlobalContext();
+  const { showNavbar, setShowNavbar, setShowDash, showDash } =
+    useGlobalContext();
 
   return window.innerWidth > 1100 ? (
     <nav>
@@ -45,6 +47,7 @@ const Navbar = () => {
             <span>
               <IoMdArrowDropdown />
             </span>
+            <AdminOption />
           </li>
         </ul>
       </div>
@@ -60,18 +63,18 @@ const Navbar = () => {
         <div
           className='hambugger-menu'
           onClick={() => {
-            setShowNav(!showNav);
+            setShowNavbar(!showNavbar);
             setShowDash(false);
           }}
         >
-          {showNav || showDash ? (
+          {showNavbar || showDash ? (
             <FaTimes className='icon' />
           ) : (
             <FaBars className='icon' />
           )}
         </div>
       </nav>
-      <div className={`mob-nav-items ${showNav && `show`}`}>
+      <div className={`mob-nav-items ${showNavbar && `show`}`}>
         <div className='search'>
           <div className='search-container'>
             <input
@@ -89,7 +92,7 @@ const Navbar = () => {
           <ul>
             <li
               onClick={() => {
-                setShowNav(false);
+                setShowNavbar(false);
                 setShowDash(true);
               }}
             >
@@ -110,6 +113,7 @@ const Navbar = () => {
               <span>
                 <IoMdArrowDropdown />
               </span>
+              <AdminOption />
             </li>
           </ul>
         </div>

@@ -5,7 +5,8 @@
   top: 90px;
   padding: 10px;
   padding-top: 40px;
-  transition: 0.4s ease-in-out all;
+  transition: $generalTransition;
+
   &.d-none {
     transform: translateX(-100%);
   }
@@ -14,14 +15,16 @@
     display: inline-flex;
     align-items: center;
     margin-bottom: 32px;
+
     span {
       margin-right: 1rem;
     }
+
     h4 {
       font-weight: 400;
       font-size: 16px;
       line-height: 19px;
-      color: #545f7d;
+      color: $textColorLight;
     }
   }
 
@@ -30,11 +33,12 @@
       font-weight: 500;
       font-size: 24px;
       line-height: 28px;
-      color: #213f7d;
+      color: $textColorHeavy;
     }
 
     .btns {
       margin-top: 20px;
+
       button {
         width: 170px;
         height: 40px;
@@ -47,11 +51,13 @@
         letter-spacing: 0.1em;
         text-transform: uppercase;
       }
+
       .red-btn {
         border: 1px solid #e4033b;
         color: #e4033b;
         margin-right: 20px;
       }
+
       .green-btn {
         border: 1px solid #39cdcc;
         color: #39cdcc;
@@ -61,9 +67,9 @@
 
   .basic-info {
     width: 100%;
-    background: #ffffff;
+    background: $whiteColor;
     border: 1px solid rgba(33, 63, 125, 0.06);
-    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    box-shadow: $boxShadow;
     border-radius: 4px;
     margin-top: 46px;
     padding: 1rem;
@@ -71,18 +77,20 @@
 
     .info {
       margin-bottom: 60px;
+
       h3 {
         font-weight: 600;
         font-size: 22px;
         line-height: 26px;
-        color: #213f7d;
+        color: $textColorHeavy;
         margin-bottom: 8px;
       }
+
       p {
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
-        color: #545f7d;
+        color: $textColorLight;
       }
 
       .user-img,
@@ -120,14 +128,17 @@
 
     .tabs {
       overflow-x: scroll;
+
       ul {
         @include flexCB;
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
         width: 700px;
+
         li {
           cursor: pointer;
+
           &.selected {
             color: #39cdcc;
             border-bottom: 2px solid #39cdcc;
@@ -140,9 +151,9 @@
 
   .info-block {
     margin-top: 30px;
-    background: #ffffff;
+    background: $whiteColor;
     border: 1px solid rgba(33, 63, 125, 0.06);
-    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    box-shadow: $boxShadow;
     border-radius: 4px;
     padding: 30px;
 
@@ -151,7 +162,7 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
-        color: #213f7d;
+        color: $textColorHeavy;
         margin: 30px 0;
       }
 
@@ -167,14 +178,14 @@
             font-size: 12px;
             line-height: 14px;
             text-transform: uppercase;
-            color: #545f7d;
+            color: $textColorLight;
           }
 
           p {
             font-weight: 500;
             font-size: 16px;
             line-height: 19px;
-            color: #545f7d;
+            color: $textColorLight;
             margin-top: 8px;
           }
         }
@@ -183,8 +194,7 @@
   }
 }
 
-@include for-phone-only {
-}
+@include for-phone-only {}
 
 @include for-tablet-potrait-up {
   .user-details {
@@ -222,8 +232,8 @@
 
         .user-tier {
           padding: 0 1rem;
-          border-left: 1px solid #545f7d;
-          border-right: 1px solid #545f7d;
+          border-left: 1px solid $textColorLight;
+          border-right: 1px solid $textColorLight;
         }
       }
 
@@ -252,8 +262,7 @@
   }
 }
 
-@include for-tablet-landscape-up {
-}
+@include for-tablet-landscape-up {}
 
 @include for-desktop-up {
   .user-details {
@@ -263,6 +272,7 @@
 
     .basic-info {
       .info {
+
         .user-img,
         .user-name,
         .user-tier,
@@ -292,5 +302,4 @@
   }
 }
 
-@include for-big-desktop-up {
-}
+@include for-big-desktop-up {}

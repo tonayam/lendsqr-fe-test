@@ -15,6 +15,7 @@
         height: 100%;
       }
     }
+
     .header-img {
       width: 100%;
       margin: 0 auto;
@@ -31,7 +32,7 @@
 
       h1 {
         font-size: 30px;
-        color: #213f7d;
+        color: $textColorHeavy;
         margin: 10px 0;
         font-weight: 700;
         line-height: 55px;
@@ -46,12 +47,13 @@
         display: inline-block;
         cursor: pointer;
       }
+
       .forgot-password {
         margin-top: 12px;
       }
 
       p {
-        color: #545f7d;
+        color: $textColorLight;
         font-weight: 400;
         font-size: 20px;
         line-height: 27px;
@@ -61,13 +63,14 @@
         height: 48px;
         width: 100%;
         background: $primaryColor;
-        color: #fff;
+        color: $whiteColor;
         border: none;
         margin-top: 30px;
         margin-bottom: 20px;
       }
 
       form {
+
         .email-container,
         .password-container {
           @include flexCB;
@@ -77,6 +80,7 @@
           padding: 0 1rem;
           margin: 12px 0;
         }
+
         input {
           width: 80%;
           border-radius: 5px;
@@ -86,8 +90,7 @@
   }
 }
 
-@include for-phone-only {
-}
+@include for-phone-only {}
 
 @include for-tablet-potrait-up {
   .login {
@@ -96,6 +99,7 @@
 
       .wrapper {
         width: 80%;
+
         h1 {
           font-size: 35px;
         }
@@ -104,12 +108,12 @@
   }
 }
 
-@include for-tablet-landscape-up {
-}
+@include for-tablet-landscape-up {}
 
 @include for-desktop-up {
   .login {
     @include flexCB;
+
     .header-img-container,
     .form-container {
       height: 100vh;
@@ -120,9 +124,11 @@
       padding: 0;
       padding-top: 100px;
       padding-left: 67px;
+
       .logo {
         margin-bottom: 130px;
       }
+
       img {
         width: 90%;
       }
@@ -150,6 +156,7 @@
         }
 
         form {
+
           .email-container,
           .password-container {
             width: 447px;
@@ -160,5 +167,4 @@
   }
 }
 
-@include for-big-desktop-up {
-}
+@include for-big-desktop-up {}
