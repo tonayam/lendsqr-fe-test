@@ -7,7 +7,7 @@ import { Link, useParams } from "react-router-dom";
 import Loading from "./Loading";
 
 const UserDetails = () => {
-  const { showNav, showDash } = useGlobalContext();
+  const { showNavbar, showDash } = useGlobalContext();
   const [userDetails, setUserDetails] = useState([]);
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -76,7 +76,9 @@ const UserDetails = () => {
   } = guarantor;
 
   return (
-    <section className={`${showDash || showNav ? `d-none` : ``} user-details`}>
+    <section
+      className={`${showDash || showNavbar ? `d-none` : ``} user-details`}
+    >
       <Link to='/dashboard'>
         <div className='navigation'>
           <span>
