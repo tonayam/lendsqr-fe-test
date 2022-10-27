@@ -5,7 +5,7 @@ import UserDetails from "../components/UserDetails";
 
 const User = () => {
   return (
-    <main>
+    <main className='user'>
       <Navbar />
       <div className='sidebar-body-container'>
         <Sidebar />
